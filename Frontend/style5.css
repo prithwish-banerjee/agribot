@@ -1,0 +1,313 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') no-repeat center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 20px;
+}
+
+/* Dark overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #bbbb66;
+    text-decoration: italic;
+    letter-spacing: 0.5px;
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* ===== FILE UPLOAD ===== */
+.custom-file-upload {
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.custom-file-upload:hover {
+    transform: scale(1.05);
+}
+
+/* Hide default input */
+input[type="file"] {
+    display: none;
+}
+
+/* Preview */
+#preview {
+    margin-top: 10px;
+    width: 200px;
+    border-radius: 10px;
+    display: none;
+    transition: 0.3s;
+}
+
+#preview:hover {
+    transform: scale(1.05);
+}
+
+/* File name */
+#fileName {
+    color: white;
+    margin-top: 5px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ===== RESULT BOX ===== */
+#resultBox {
+    margin-top: 10px;
+    padding: 12px;
+    width: 300px;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+}
+
+/* ===== CHAT CARD ===== */
+.card {
+    margin-top: 30px;
+    width: 340px;
+    padding: 25px;
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    color: white;
+}
+
+/* Card heading */
+.card h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #a5d6a7;
+}
+
+/* Labels */
+.card label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.card input,
+.card select {
+    width: 100%;
+    padding: 11px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    font-size: 14px;
+}
+
+/* ===== CHAT INPUT AREA ===== */
+.chat-input-area {
+    margin-top: 15px;
+}
+
+/* Buttons row */
+.chat-buttons {
+    display: flex;
+    margin-top: 10px;
+}
+
+/* Mic button */
+.mic-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background: #4caf50;
+    font-size: 16px;
+}
+
+/* Send button (primary) */
+.send-btn {
+    flex: 1;
+    margin-left: 10px;
+    height: 45px;
+    border-radius: 8px;
+
+    font-weight: 600;
+    font-size: 15px;
+
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+}
+
+.send-btn:hover {
+    background: linear-gradient(135deg, #1b5e20, #388e3c);
+    transform: translateY(-1px);
+}
+
+/* Voice toggle */
+.voice-toggle {
+    margin-top: 12px;
+}
+
+/* ===== CHAT MESSAGES ===== */
+#messages {
+    margin-top: 10px;
+}
+
+#messages p {
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===== SMOOTH EFFECTS ===== */
+body {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Button hover glow */
+button:hover {
+    box-shadow: 0 0 10px rgba(102, 187, 106, 0.6);
+}
+
+/* Input focus */
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 6px rgba(102, 187, 106, 0.7);
+}
+/* ===== Page Fade In ===== */
+body {
+    animation: fadeInPage 1s ease;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== Floating Card Effect ===== */
+.card {
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===== Button Glow Hover ===== */
+button:hover {
+    box-shadow: 0 0 12px rgba(102, 187, 106, 0.7);
+}
+
+/* ===== Send Button Extra Glow ===== */
+.send-btn:hover {
+    box-shadow: 0 0 18px rgba(76, 175, 80, 0.9);
+}
+
+/* ===== Image Preview Animation ===== */
+#preview {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#preview:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* ===== Message Pop Animation ===== */
+#messages p {
+    animation: popMsg 0.3s ease;
+}
+
+@keyframes popMsg {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===== Smooth Input Focus ===== */
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 187, 106, 0.7);
+}
+
+/* ===== Scan Button Pulse ===== */
+button:active {
+    transform: scale(0.95);
+}

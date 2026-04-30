@@ -1,0 +1,145 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef') no-repeat center/cover;
+
+    animation: bgMove 12s ease-in-out infinite alternate;
+    z-index: -2;
+}
+
+/* Dark overlay for readability */
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Background animation */
+@keyframes bgMove {
+    0% {
+        transform: scale(1) translateY(0px);
+    }
+    100% {
+        transform: scale(1.08) translateY(-10px);
+    }
+}
+
+/* ===== CONTAINER ===== */
+.landing-container {
+    text-align: center;
+    color: white;
+    padding: 40px;
+
+    animation: fadeIn 1s ease;
+}
+
+/* ===== BRAND ===== */
+.brand {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 15px;
+
+    letter-spacing: 1px;
+
+    /* gradient text */
+    background: linear-gradient(135deg, #81c784, #c8e6c9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #bbbb66;
+}
+
+/* ===== TAGLINE ===== */
+.tagline {
+    font-size: 15px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+
+
+}
+
+/* ===== BUTTON ===== */
+.start-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+
+    border-radius: 30px;
+    border: none;
+
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+    color: white;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+}
+
+/* ===== FADE IN ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Hide initially */
+.brand,
+.tagline,
+.start-btn {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Brand appears first */
+.brand {
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Tagline appears after */
+.tagline {
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Button appears last */
+.start-btn {
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 1.5s;
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

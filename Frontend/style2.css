@@ -1,0 +1,174 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background image */
+body {
+    height: 100vh;
+    background: url('farm.jpeg') no-repeat center center/cover;
+}
+
+/* Dark overlay */
+.overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    background: rgba(46, 125, 50, 0.9);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+.agribot{
+    font-size: 24px;
+    font-weight: bold;
+    color: #bbbb66;
+    font-style: oblique;
+}
+
+/* Push logout right */
+.navbar button {
+    margin-left: auto;
+}
+
+/* Logout button */
+.navbar button {
+    background: #ff5252;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar button:hover {
+    background: #ff1744;
+    transform: scale(1.05);
+}
+
+/* Welcome text */
+.welcome {
+    text-align: center;
+    margin: 40px 0;
+    color: white;
+    font-size: 32px;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+    width: 260px;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s;
+    text-align: center;
+    animation: slideUp 1s ease;
+}
+
+/* Gradient cards */
+.card1 {
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+}
+
+.card2 {
+    background: linear-gradient(135deg, #1e88e5, #42a5f5);
+}
+
+/* Hover animation */
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Icon */
+.icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+/* Text */
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* Result Box Styling */
+#resultBox {
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s ease;
+}
+
+/* Heading */
+#resultBox h3 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+/* Paragraph spacing */
+#resultBox p {
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+/* Confidence highlight */
+#resultBox p:nth-child(3) {
+    color: #1565c0;
+    font-weight: bold;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="data:,">
+    <title>Scan Crop</title>
+
+    <link rel="stylesheet" href="style5.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="navbar">
+    <h2 class="logo">🌾 <em>AgriBot</em></h2>
+</div>
+
+<h2>📷 Scan Crop Disease</h2>
+
+<!-- Upload -->
+<label for="imageInput" class="custom-file-upload">
+     Choose Crop Image
+</label>
+<input type="file" id="imageInput">
+
+<p id="fileName"></p>
+
+<img id="preview" alt="Crop preview" title="Crop image preview">
+
+<button onclick="scanImage()">Scan</button>
+
+<h3>Result:</h3>
+<div id="resultBox">No result yet</div>
+
+<!-- Chat -->
+<div class="card">
+    <h3 style="color: chartreuse;">Farming Assistant   🤖</h3>
+
+    <label><i>Input Language</i></label>
+    <select id="lang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="bn">Bengali</option>
+    </select>
+
+    <label><em>Output Language</em></label>
+    <select id="outputLang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="bn">Bengali</option>
+    </select>
+
+    <!-- Chat Input -->
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Ask your problem...">
+
+        <div class="chat-buttons">
+            <button onclick="startVoice()" class="mic-btn">🎤</button>
+            <button onclick="sendMessage()" class="send-btn">Send</button>
+        </div>
+    </div>
+
+    <label class="voice-toggle">
+        <input type="checkbox" id="voiceToggle">
+        Voice Reply 🔊
+    </label>
+
+    <div id="messages"></div>
+</div>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>

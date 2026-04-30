@@ -1,0 +1,122 @@
+/* Background */
+body {
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay */
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+}
+
+/* Glass box */
+.auth-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 35px 30px;
+    border-radius: 18px;
+    width: 320px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    color: white;
+    animation: fadeIn 1s ease;
+}
+
+/* Heading */
+.auth-box h2 {
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.auth-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+/* Placeholder */
+.auth-box input::placeholder {
+    color: #ddd;
+}
+
+/* Input focus */
+.auth-box input:focus {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Button */
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.auth-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Text */
+.auth-box p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Link */
+.auth-box a {
+    color: #90caf9;
+    text-decoration: none;
+}
+
+.auth-box a:hover {
+    text-decoration: underline;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+    width: 100%;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

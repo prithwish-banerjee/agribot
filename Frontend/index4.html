@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>AgriBot - Logs</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>🌾 AgriBot</h2>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<!-- 🌦 Weather Section -->
+<div class="glass weather-card">
+    <h2>🌦️ Weather Today</h2>
+
+    <div class="weather-content">
+        <div class="weather-icon" id="weatherEmoji">🌦️</div>
+
+        <div class="weather-info" id="weatherBox">
+            <p>🌡️ Temp: <span id="temp">--</span> °C</p>
+            <p>💧 Humidity: <span id="humidity">--</span>%</p>
+            <p>🌬️ Wind: <span id="wind">--</span> km/h</p>
+            <p>🌥️ Condition: <span id="condition">Fetching...</span></p>
+        </div>
+    </div>
+</div>
+
+<!-- 📊 Dashboard -->
+<div class="glass">
+    <h2>📊 Dashboard</h2>
+    <div class="stats">
+        <div class="stat-card expense">
+            💸 Expense<br><span id="totalExpense">0</span>
+        </div>
+        <div class="stat-card profit">
+            💰 Profit<br><span id="totalProfit">0</span>
+        </div>
+    </div>
+</div>
+
+<!-- ➕ Add Log -->
+<div class="glass form">
+    <h2>➕ Add Log</h2>
+
+    <input id="crop" placeholder="🌾 Crop Name">
+    <input id="expense" type="number" placeholder="💸 Expense">
+    <input id="profit" type="number" placeholder="💰 Profit">
+    <input id="irrigationDate" type="date">
+    <input id="sprayDate" type="date">
+    <input id="notes" placeholder="📝 Notes">
+
+    <button onclick="addLog()">Add Log</button>
+</div>
+
+<!-- 📋 Logs -->
+<div class="glass">
+    <h2>📋 Your Logs</h2>
+    <div id="logsContainer"></div>
+</div>
+
+<!-- JS -->
+<script src="scripts.js"></script>
+
+<script>
+    // ✅ Auth check
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = "index1.html";
+    }
+
+    // ✅ Real weather — updates the existing spans + emoji
+    async function loadWeather() {
+        const apiKey = "add5ace001b83f4d66ef704f864c0fed";
+
+        if (!navigator.geolocation) {
+            document.getElementById("condition").innerText = "Geolocation not supported";
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            try {
+                const res = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+                );
+                const data = await res.json();
+
+                const condition = data.weather[0].main;
+                const temp     = data.main.temp;
+                const humidity = data.main.humidity;
+                const wind     = (data.wind.speed * 3.6).toFixed(1); // m/s → km/h
+
+                // ✅ Update the spans
+                document.getElementById("temp").innerText      = temp;
+                document.getElementById("humidity").innerText  = humidity;
+                document.getElementById("wind").innerText      = wind;
+                document.getElementById("condition").innerText = condition;
+
+                // ✅ Update emoji
+                const emoji = document.getElementById("weatherEmoji");
+                if (condition.toLowerCase().includes("rain"))       emoji.textContent = "🌧️";
+                else if (condition.toLowerCase().includes("cloud")) emoji.textContent = "☁️";
+                else if (condition.toLowerCase().includes("clear")) emoji.textContent = "☀️";
+                else if (condition.toLowerCase().includes("storm")) emoji.textContent = "⛈️";
+                else emoji.textContent = "🌦️";
+
+                // ✅ Rain warning for farmers
+                if (condition.toLowerCase().includes("rain")) {
+                    alert("🌧️ Rain expected today — avoid spraying!");
+                }
+
+            } catch (err) {
+                console.error("Weather fetch failed:", err);
+                document.getElementById("condition").innerText = "Unavailable";
+            }
+
+        }, () => {
+            document.getElementById("condition").innerText = "Location denied";
+        });
+    }
+
+    loadWeather();
+</script>
+
+</body>
+</html>

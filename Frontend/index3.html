@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AgriBot Dashboard</title>
+
+  
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <div class="navbar">
+        <h2 class="agribot">🌾 AgriBot</h2>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <h2 class="welcome">Welcome</h2>
+
+    <div class="container">
+        
+        <div class="card card1" onclick="goToLogs()">
+            <div class="icon">📒</div>
+            <h3>Add / View Logs</h3>
+            <p>Manage your farming records</p>
+        </div>
+
+        <div class="card card2" onclick="goToScan()">
+            <div class="icon">📷</div>
+            <h3>Scan Crop</h3>
+            <p>Detect crop health instantly</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
